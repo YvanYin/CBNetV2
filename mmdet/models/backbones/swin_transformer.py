@@ -621,6 +621,9 @@ class SwinTransformer(BaseModule):
         if isinstance(self.pretrained, str):
             self.apply(_init_weights)
             logger = get_root_logger()
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            print(self.pretrained)
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             load_checkpoint(self, self.pretrained, strict=False, logger=logger)
         elif self.pretrained is None:
             self.apply(_init_weights)
