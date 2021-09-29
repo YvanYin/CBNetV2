@@ -1,6 +1,10 @@
 _base_ = [
     '../_base_/models/cascade_mask_rcnn_swin_fpn.py',
+<<<<<<< HEAD
     '../_base_/datasets/object365.py',
+=======
+    '../_base_/datasets/coco_instance.py',
+>>>>>>> f7c8f2ed6ca7ba9379074410abca4886c6e69cdc
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
 

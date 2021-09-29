@@ -1,5 +1,9 @@
 _base_ = [
+<<<<<<< HEAD
     '../swin/cascade_mask_rcnn_swin_base_patch4_window7_mstrain_480-800_giou_4conv1f_adamw_3x_object365.py'
+=======
+    '../swin/cascade_mask_rcnn_swin_base_patch4_window7_mstrain_480-800_giou_4conv1f_adamw_3x_coco.py'
+>>>>>>> f7c8f2ed6ca7ba9379074410abca4886c6e69cdc
 ]
 
 model = dict(
@@ -24,7 +28,11 @@ img_norm_cfg = dict(
 data_root="datasets/objects365/"
 data = dict(
     train=dict(
+<<<<<<< HEAD
         ann_file=data_root + 'annotations/instances_train.json',
+=======
+        ann_file=data_root + 'annotations/train_annotations.json',
+>>>>>>> f7c8f2ed6ca7ba9379074410abca4886c6e69cdc
         img_prefix=data_root + 'train/'))
 
 train_pipeline = [
