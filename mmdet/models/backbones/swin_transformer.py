@@ -560,7 +560,7 @@ class SwinTransformer(BaseModule):
             layer = norm_layer(num_features[i_layer])
             layer_name = f'norm{i_layer}'
             self.add_module(layer_name, layer)
-
+        self.init_weights()
         self._freeze_stages()
 
     def _freeze_stages(self):
@@ -582,12 +582,12 @@ class SwinTransformer(BaseModule):
 
     # def init_weights(self, pretrained=None):
     #     """Initialize the weights in backbone.
-
+    #
     #     Args:
     #         pretrained (str, optional): Path to pre-trained weights.
     #             Defaults to None.
     #     """
-
+    #
     #     def _init_weights(m):
     #         if isinstance(m, nn.Linear):
     #             trunc_normal_(m.weight, std=.02)
@@ -596,7 +596,7 @@ class SwinTransformer(BaseModule):
     #         elif isinstance(m, nn.LayerNorm):
     #             nn.init.constant_(m.bias, 0)
     #             nn.init.constant_(m.weight, 1.0)
-
+    #
     #     if isinstance(pretrained, str):
     #         self.apply(_init_weights)
     #         logger = get_root_logger()
@@ -621,6 +621,9 @@ class SwinTransformer(BaseModule):
         if isinstance(self.pretrained, str):
             self.apply(_init_weights)
             logger = get_root_logger()
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            print(self.pretrained)
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             load_checkpoint(self, self.pretrained, strict=False, logger=logger)
         elif self.pretrained is None:
             self.apply(_init_weights)
